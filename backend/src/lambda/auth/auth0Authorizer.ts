@@ -42,13 +42,13 @@ export const handler = async (
     logger.error('User not authorized', { error: e.message })
 
     return {
-      principalId: 'google-oauth2|114546809453989807447',
+      principalId: 'user',
       policyDocument: {
         Version: '2012-10-17',
         Statement: [
           {
             Action: 'execute-api:Invoke',
-            Effect: 'Allow',
+            Effect: 'Deny',
             Resource: '*'
           }
         ]
