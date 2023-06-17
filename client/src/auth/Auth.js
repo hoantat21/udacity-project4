@@ -34,6 +34,7 @@ export default class Auth {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         console.log('Access token: ', authResult.accessToken)
+        console.log('Access result: ', authResult)
         console.log('id token: ', authResult.idToken)
         this.setSession(authResult);
       } else if (err) {

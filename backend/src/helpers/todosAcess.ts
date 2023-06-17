@@ -34,7 +34,7 @@ export async function getAllTodosByUserId(userId: string): Promise<TodoItem[]> {
       ':userId': userId
     }
   }).promise()
-  console.log("Cuong log " + JSON.stringify(result.Items))
+  console.log("get all log " + JSON.stringify(result.Items))
   return result.Items as TodoItem[]
 
 }
@@ -93,7 +93,7 @@ export async function updateTodo(todoId: string, userId: string, model: TodoUpda
 }
 
 export async function deleteTodo(todoId: string, userId: string): Promise<any> {
-  console.log("Cuong delete");
+  console.log("log delete");
   const params = {
     TableName: todosTable,
     Key: {

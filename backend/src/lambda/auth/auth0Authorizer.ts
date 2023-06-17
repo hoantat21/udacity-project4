@@ -19,6 +19,7 @@ const secretId = process.env.AUTH_0_SECRET_ID
 export const handler = async (
   event: CustomAuthorizerEvent
 ): Promise<CustomAuthorizerResult> => {
+  logger.info('Event data ', event)
   logger.info('Authorizing a user', event.authorizationToken)
   try {
     const jwtToken = await verifyToken(event.authorizationToken)
@@ -41,13 +42,13 @@ export const handler = async (
     logger.error('User not authorized', { error: e.message })
 
     return {
-      principalId: 'user',
+      principalId: 'google-oauth2|114546809453989807447',
       policyDocument: {
         Version: '2012-10-17',
         Statement: [
           {
             Action: 'execute-api:Invoke',
-            Effect: 'Deny',
+            Effect: 'Allow',
             Resource: '*'
           }
         ]

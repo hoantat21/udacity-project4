@@ -1,6 +1,6 @@
 # TODO: Change the name of the org 
 org: hoanta21 
-app: serverless-tatph
+app: serverless-http-api
 service: serverless-todo-app
 frameworkVersion: '3'
 
